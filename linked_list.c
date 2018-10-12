@@ -4,7 +4,7 @@
 
 void print_list(struct node * s){
 	struct node * curnode = s;
-	while (curnode != NULL){
+	while (curnode){
 		printf("|%d| -> ", curnode->i);
 		curnode = curnode->next;
 		}
@@ -14,21 +14,17 @@ void print_list(struct node * s){
 
 struct node * insert_front( struct node * s, int x){
 	struct node * new = malloc(sizeof(struct node));
-	new->i = x;
 	new->next = s;
+	new->i = x;
 	return new;
 }
 
 struct node * free_list(struct node * s){
-	//struct node * begin = s;
-	if (s->next == NULL) {
-		free(s);
-		//printf("debug if free_list NULL %d\n", s->i);
-		}
-	else {
+	if (s->next) {
 		free_list(s->next);
-		free(s);
-		//printf("debug else %d\n", s->i);
-	}
+		}
+	//printf("debug ORIGINAL%d, %p\n", s->i,s->next);
+	free(s);
+	//printf("debug FREED%d, %p\n", s->i, s->next);
 	return s;
 }

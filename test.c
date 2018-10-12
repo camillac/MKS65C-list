@@ -13,10 +13,11 @@ int main(){
 	print_list(list);
 	list = insert_front(list, 0);
 	print_list(list);
+	list = insert_front(list, 7);
+	print_list(list);
   
 	printf("\nfree_list\n");
-	list = free_list(list);
-	print_list(list);
+	print_list(free_list(list));
 	printf("\n");
   
 	return 0;
