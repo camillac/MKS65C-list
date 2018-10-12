@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "linked_list.c"
 
-
-
 int main(){
 	printf("linked_list:\n");
 	struct node * list;
@@ -17,7 +15,7 @@ int main(){
 	print_list(list);
   
 	printf("\nfree_list\n");
-	print_list(free_list(list));
+	print_list(free_list(list)); //for some reason pointers aren't freed
 	printf("\n");
   
 	return 0;
